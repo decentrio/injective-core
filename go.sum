@@ -258,10 +258,6 @@ github.com/InjectiveLabs/bandchain-packet v0.0.4-inj-1 h1:ZnvCV/lzjWmBwuGbkAz+ok
 github.com/InjectiveLabs/bandchain-packet v0.0.4-inj-1/go.mod h1:QELTDYiwnbAqIgTF9zeKr+hVlK6eVyt6Nxmh6/1mmzQ=
 github.com/InjectiveLabs/block-sdk/v2 v2.5.1-evm-comet1-inj h1:Xuj3uLi8bwghHC7ydo8BhZBf6wZcM/rt569xIRXGod4=
 github.com/InjectiveLabs/block-sdk/v2 v2.5.1-evm-comet1-inj/go.mod h1:2mgxQNwCFA89tNIrylWeUB88bZhULHv/mituXZyBn/M=
-github.com/InjectiveLabs/cometbft v1.0.1-inj.3 h1:wVl4vPhyTh6uuwT0BfH3pbF9W0QqEnZYRgB/2IDFXR0=
-github.com/InjectiveLabs/cometbft v1.0.1-inj.3/go.mod h1:RgHHndb7wdtm9etmVj4tDn1NynC9YKIEJW9UUI3FCn4=
-github.com/InjectiveLabs/cosmos-sdk v0.50.13-evm-comet1-inj.6 h1:dwSnWE/atfvM2SbUGyhfIi+ivJLqDEM3NacN4P+bTHI=
-github.com/InjectiveLabs/cosmos-sdk v0.50.13-evm-comet1-inj.6/go.mod h1:8DbOKfQWQL1P4zmwqwgkde/CzWJfpp6EmCRONg6vLGw=
 github.com/InjectiveLabs/cosmos-sdk/api v0.50.13-evm-comet1-inj.6 h1:ljdlSVODZo2V8WGEmnxnDZhDmj0AVTluPPRb9POLctk=
 github.com/InjectiveLabs/cosmos-sdk/api v0.50.13-evm-comet1-inj.6/go.mod h1:iCp7MYEpKTFW/Tp/zgdeLLIMdll5bFwd5cchKCU/Zd4=
 github.com/InjectiveLabs/cosmos-sdk/client/v2 v2.0.0-v0.50.13-evm-comet1-inj.6 h1:B1gMShMREa0QPd/apE25oJms8swbUMce/9wamWqQ6k0=

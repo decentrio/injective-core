@@ -341,9 +341,9 @@ replace (
 	github.com/coder/websocket => github.com/InjectiveLabs/websocket v1.8.13
 
 	// Use CometBFT v1.0.1 with Mempool lanes and DOG
-	github.com/cometbft/cometbft => github.com/InjectiveLabs/cometbft v1.0.1-inj.3
+	github.com/cometbft/cometbft => /Users/donglieu/1125/inj/cometbft
 	github.com/cometbft/cometbft/api => github.com/injectivelabs/cometbft/api v1.0.0-inj.2
-	github.com/cosmos/cosmos-sdk => github.com/InjectiveLabs/cosmos-sdk v0.50.13-evm-comet1-inj.6
+	github.com/cosmos/cosmos-sdk => /Users/donglieu/1125/inj/cosmos-sdk
 
 	github.com/cosmos/ibc-apps/middleware/packet-forward-middleware/v8 => github.com/InjectiveLabs/ibc-apps/middleware/packet-forward-middleware/v8 v8.2.0-evm-comet1-inj
 	github.com/cosmos/ibc-apps/modules/ibc-hooks/v8 => github.com/InjectiveLabs/ibc-apps/modules/ibc-hooks/v8 v8.0.0-evm-comet1-inj
