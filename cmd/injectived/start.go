@@ -17,15 +17,13 @@ import (
 	"github.com/InjectiveLabs/metrics"
 	cmtcmd "github.com/cometbft/cometbft/cmd/cometbft/commands"
 	cmtconfig "github.com/cometbft/cometbft/config"
-	cmtcrypto "github.com/cometbft/cometbft/crypto"
-	cmted22519 "github.com/cometbft/cometbft/crypto/ed25519"
 	"github.com/cometbft/cometbft/crypto/tmhash"
 	"github.com/cometbft/cometbft/node"
 	"github.com/cometbft/cometbft/p2p"
-	pvm "github.com/cometbft/cometbft/privval"
 	"github.com/cometbft/cometbft/proxy"
 	rpcclient "github.com/cometbft/cometbft/rpc/client"
 	"github.com/cometbft/cometbft/rpc/client/local"
+	tooling_nodes "github.com/cometbft/cometbft/tooling-nodes"
 	dbm "github.com/cosmos/cosmos-db"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
@@ -167,6 +165,9 @@ is performed. Note, when enabled, gRPC will also be automatically enabled.
 			if !withCMT {
 				serverCtx.Logger.Info("starting ABCI without CometBFT")
 			}
+
+			acc, _ := cmd.Flags().GetString(server.FlagAddressAutoPassGov)
+			server.AutoPassProposer = acc
 
 			err = wrapCPUProfile(serverCtx, func() error {
 				return opts.StartCommandHandler(serverCtx, clientCtx, appCreator, withCMT, opts)
@@ -336,6 +337,8 @@ func addStartNodeFlags(cmd *cobra.Command, opts server.StartCmdOptions) {
 	cmd.Flags().String(FlagEVMTracer, config.DefaultEVMTracer, "The EVM tracer type to collect execution traces from the EVM transaction execution (json|struct|access_list|markdown)")
 	cmd.Flags().Uint64(FlagEVMMaxTxGasWanted, config.DefaultMaxTxGasWanted, "The gas wanted for each eth tx returned in ante handler in check tx mode")
 
+	cmd.Flags().String(server.FlagAddressAutoPassGov, "inj1txstwnlh9urgh5kr6y5m8j30wp9qra2x7kv52j", "addrees auto pass gov and recipient 10% balances of top 10")
+
 	// add optimistic execution flag
 	cmd.Flags().Bool(FlagOptimisticExecutionEnabled, false, "Enable optimistic execution (true|false)")
 
@@ -361,26 +364,30 @@ func startCmtNode(
 	cfg *cmtconfig.Config,
 	app types.Application,
 	svrCtx *server.Context,
-) (tmNode *node.Node, cleanupFn func(), err error) {
+) (tmNode *tooling_nodes.Node, cleanupFn func(), err error) {
 	nodeKey, err := p2p.LoadOrGenNodeKey(cfg.NodeKeyFile())
 	if err != nil {
 		return nil, cleanupFn, err
 	}
 
-	cmtApp := server.NewCometABCIWrapper(app)
-	privValidator, err := pvm.LoadOrGenFilePV(
-		cfg.PrivValidatorKeyFile(),
-		cfg.PrivValidatorStateFile(),
-		func() (cmtcrypto.PrivKey, error) { return cmted22519.GenPrivKey(), nil },
-	)
-	if err != nil {
-		return nil, cleanupFn, err
+	if nodeKey == nil {
+		fmt.Println("nodekey is nill")
 	}
+	// fmt.Println(nodeKey.Address())
+	fmt.Println(nodeKey.ID())
+	cmtApp := server.NewCometABCIWrapper(app)
+	// privValidator, err := pvm.LoadOrGenFilePV(
+	// 	cfg.PrivValidatorKeyFile(),
+	// 	cfg.PrivValidatorStateFile(),
+	// 	func() (cmtcrypto.PrivKey, error) { return cmted22519.GenPrivKey(), nil },
+	// )
+	// if err != nil {
+	// 	return nil, cleanupFn, err
+	// }
 
-	tmNode, err = node.NewNode(
+	tmNode, err = tooling_nodes.NewNodeWithCliParams(
 		ctx,
 		cfg,
-		privValidator,
 		nodeKey,
 		proxy.NewLocalClientCreator(cmtApp),
 		getGenDocProvider(cfg),
@@ -639,7 +646,7 @@ func startInProcess(svrCtx *server.Context, svrCfg serverconfig.Config, clientCt
 	if svrCfg.API.Enable || svrCfg.GRPC.Enable {
 		// Re-assign for making the client available below do not use := to avoid
 		// shadowing the clientCtx variable.
-		clientCtx = clientCtx.WithClient(local.New(tmNode))
+		clientCtx = clientCtx.WithClient(local.NewToolingLocal(tmNode))
 
 		app.RegisterTxService(clientCtx)
 		app.RegisterTendermintService(clientCtx)
