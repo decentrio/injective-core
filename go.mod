@@ -343,7 +343,7 @@ replace (
 	// Use CometBFT v1.0.1 with Mempool lanes and DOG
 	github.com/cometbft/cometbft => github.com/decentrio/cometbft v0.0.0-20251022054448-215ec3f84916
 	github.com/cometbft/cometbft/api => github.com/injectivelabs/cometbft/api v1.0.0-inj.2
-	github.com/cosmos/cosmos-sdk => github.com/decentrio/cosmos-sdk v0.50.12-0.20251022054513-2ec80effeb97
+	github.com/cosmos/cosmos-sdk => github.com/decentrio/cosmos-sdk v0.50.12-0.20251024042620-e1d7fc8cccfd
 
 	github.com/cosmos/ibc-apps/middleware/packet-forward-middleware/v8 => github.com/InjectiveLabs/ibc-apps/middleware/packet-forward-middleware/v8 v8.2.0-evm-comet1-inj
 	github.com/cosmos/ibc-apps/modules/ibc-hooks/v8 => github.com/InjectiveLabs/ibc-apps/modules/ibc-hooks/v8 v8.0.0-evm-comet1-inj

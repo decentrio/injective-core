@@ -484,8 +484,8 @@ github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc h1:U9qPSI2PIWSS1
 github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/decentrio/cometbft v0.0.0-20251022054448-215ec3f84916 h1:kuP97ydLYCTotmnjgQ58XCAJ5Dk2aNYF2h3SPeCjpNM=
 github.com/decentrio/cometbft v0.0.0-20251022054448-215ec3f84916/go.mod h1:RgHHndb7wdtm9etmVj4tDn1NynC9YKIEJW9UUI3FCn4=
-github.com/decentrio/cosmos-sdk v0.50.12-0.20251022054513-2ec80effeb97 h1:HOnHASdHav6DYM+FofDhWmlBbcsj4ctKJmljkeUeFmE=
-github.com/decentrio/cosmos-sdk v0.50.12-0.20251022054513-2ec80effeb97/go.mod h1:SjJnGeiKESngJ3yLyiVDbP4Lp+pNG7ZK3WMjgW3549U=
+github.com/decentrio/cosmos-sdk v0.50.12-0.20251024042620-e1d7fc8cccfd h1:6O7K403616AxjwJ3MA25SbAUh3XHErugNdwE66Jcz5A=
+github.com/decentrio/cosmos-sdk v0.50.12-0.20251024042620-e1d7fc8cccfd/go.mod h1:SjJnGeiKESngJ3yLyiVDbP4Lp+pNG7ZK3WMjgW3549U=
 github.com/deckarep/golang-set/v2 v2.8.0 h1:swm0rlPCmdWn9mESxKOjWk8hXSqoxOp+ZlfuyaAdFlQ=
 github.com/deckarep/golang-set/v2 v2.8.0/go.mod h1:VAky9rY/yGXJOLEDv3OMci+7wtDpOF4IN+y82NBOac4=
 github.com/decred/dcrd/crypto/blake256 v1.0.0/go.mod h1:sQl2p6Y26YV+ZOcSTP6thNdn47hh8kt6rqSlvmrXFAc=
